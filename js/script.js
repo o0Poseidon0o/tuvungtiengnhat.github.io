@@ -77,9 +77,17 @@ listenBtn.addEventListener("click", function () {
 });
 
 function speakKana(kana) {
-  var utterance = new SpeechSynthesisUtterance(kana);
-  utterance.lang = "ja-JP";
-  speechSynthesis.speak(utterance);
+  if ('speechSynthesis' in window) {
+    var utterance = new SpeechSynthesisUtterance(kana);
+    utterance.lang = "ja-JP";
+    window.speechSynthesis.speak(utterance);
+  } else if ('webkitSpeechSynthesis' in window) {
+    var utterance = new SpeechSynthesisUtterance(kana);
+    utterance.lang = "ja-JP";
+    window.webkitSpeechSynthesis.speak(utterance);
+  } else {
+    alert("Trình duyệt của bạn không hỗ trợ Text-to-Speech.");
+  }
 }
 
 var checkBtn = document.getElementById("checkBtn");
