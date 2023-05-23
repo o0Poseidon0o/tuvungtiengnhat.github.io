@@ -3,30 +3,49 @@ var wordElement = document.getElementById("word");
 var romajiElement = document.getElementById("romaji");
 var meaningElement = document.getElementById("meaning");
 var nextBtn = document.getElementById("nextBtn");
-var listenBtn = document.getElementById("listenBtn"); // Thêm nút "Nghe"
+var listenBtn = document.getElementById("listenBtn");
+var answer1Element = document.getElementById("label1");
+var answer2Element = document.getElementById("label2");
+var answer3Element = document.getElementById("label3");
+var answer4Element = document.getElementById("label4");
 
 var vocabulary = [];
-var currentWord; // Biến lưu trữ từ vựng hiện tại
+var currentWord;
 
 function showNextWord() {
   if (vocabulary.length > 0) {
     var randomIndex = Math.floor(Math.random() * vocabulary.length);
     currentWord = vocabulary[randomIndex];
-    vocabulary.splice(randomIndex, 1); // Xóa từ vựng đã được hiển thị khỏi danh sách
+    vocabulary.splice(randomIndex, 1);
     wordElement.textContent = currentWord.Kanji + " (" + currentWord.Kana + ")";
     romajiElement.textContent = currentWord.Romaji;
-    meaningElement.style.display = "none"; // Ẩn nghĩa của từ
+    meaningElement.style.display = "none";
     wordElement.addEventListener("click", function () {
       meaningElement.textContent = currentWord["Ý nghĩa"];
-      meaningElement.style.display = "block"; // Hiển thị nghĩa của từ khi click vào từ
+      meaningElement.style.display = "block";
     });
+
+    answer1Element.textContent = currentWord["Ý nghĩa"];
+    answer2Element.textContent = getRandomMeaning();
+    answer3Element.textContent = getRandomMeaning();
+    answer4Element.textContent = getRandomMeaning();
+
+    var answerRadios = document.querySelectorAll("#answers input[type='radio']");
+    for (var i = 0; i < answerRadios.length; i++) {
+      answerRadios[i].checked = false;
+    }
   } else {
     wordElement.textContent = "Hết từ vựng";
     romajiElement.textContent = "";
     meaningElement.textContent = "";
     nextBtn.disabled = true;
-    listenBtn.disabled = true; // Vô hiệu hóa nút "Nghe" khi hết từ vựng
+    listenBtn.disabled = true;
   }
+}
+
+function getRandomMeaning() {
+  var randomIndex = Math.floor(Math.random() * vocabulary.length);
+  return vocabulary[randomIndex]["Ý nghĩa"];
 }
 
 nextBtn.addEventListener("click", showNextWord);
@@ -34,8 +53,6 @@ nextBtn.addEventListener("click", showNextWord);
 function parseCSV(csvData) {
   var parsedData = Papa.parse(csvData, { header: true }).data;
   vocabulary = parsedData;
-  nextBtn.disabled = false;
-  listenBtn.disabled = false; // Kích hoạt nút "Nghe" khi có từ vựng
 }
 
 function handleFileSelect(event) {
@@ -44,6 +61,7 @@ function handleFileSelect(event) {
   reader.onload = function (e) {
     var csvData = e.target.result;
     parseCSV(csvData);
+    showNextWord();
   };
   reader.readAsText(file);
 }
@@ -63,3 +81,22 @@ function speakKana(kana) {
   utterance.lang = "ja-JP";
   speechSynthesis.speak(utterance);
 }
+
+var checkBtn = document.getElementById("checkBtn");
+var resultElement = document.getElementById("result");
+
+function checkAnswer() {
+  var answerLabels = document.querySelectorAll("#answers label");
+  var selectedAnswer;
+  for (var i = 0; i < answerLabels.length; i++) {
+    if (document.getElementById("answer" + (i + 1)).checked) {
+      selectedAnswer = answerLabels[i].textContent;
+      break;
+    }
+  }
+
+  resultElement.textContent =
+    "Kết quả: " + (selectedAnswer === currentWord["Ý nghĩa"] ? "Đúng" : "Sai");
+}
+
+checkBtn.addEventListener("click", checkAnswer);
