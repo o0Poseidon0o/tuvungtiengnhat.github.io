@@ -17,8 +17,8 @@ function showNextWord() {
     wordElement.addEventListener("click", function () {
       meaningElement.textContent = currentWord["Ý nghĩa"];
       meaningElement.style.display = "block"; // Hiển thị nghĩa của từ khi click vào từ
-      speakKana(currentWord.Kana); // Thêm phần này để phát ra âm thanh
     });
+    speakKana(currentWord.Kana); // Thêm phần này để phát ra âm thanh
   } else {
     wordElement.textContent = "Hết từ vựng";
     romajiElement.textContent = "";
