@@ -40,7 +40,8 @@ function showNextWord() {
     meaningElement.textContent = "";
     nextBtn.disabled = true;
     listenBtn.disabled = true;
-  }
+  }resultElement.textContent = "";
+
 }
 
 function getRandomMeaning() {
@@ -64,6 +65,7 @@ function handleFileSelect(event) {
     showNextWord();
   };
   reader.readAsText(file);
+  resultElement.textContent = "";
 }
 
 document
