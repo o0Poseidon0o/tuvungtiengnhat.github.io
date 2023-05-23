@@ -85,6 +85,11 @@ function speakKana(kana) {
     var utterance = new SpeechSynthesisUtterance(kana);
     utterance.lang = "ja-JP";
     window.webkitSpeechSynthesis.speak(utterance);
+  } else if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
+    var utterance = new SpeechSynthesisUtterance(kana);
+    utterance.lang = "ja-JP";
+    var speech = new SpeechSynthesis();
+    speech.speak(utterance);
   } else {
     alert("Trình duyệt của bạn không hỗ trợ Text-to-Speech.");
   }
