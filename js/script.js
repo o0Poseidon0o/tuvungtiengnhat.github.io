@@ -17,7 +17,9 @@ function showNextWord() {
     var randomIndex = Math.floor(Math.random() * vocabulary.length);
     currentWord = vocabulary[randomIndex];
     vocabulary.splice(randomIndex, 1);
-    wordElement.textContent = currentWord.Kanji + " (" + currentWord.Kana + ")";
+    wordElement.innerHTML =
+      currentWord.Kanji + "<br>(" + currentWord.Kana + ")";
+
     romajiElement.textContent = currentWord.Romaji;
     meaningElement.style.display = "none";
     wordElement.addEventListener("click", function () {
@@ -30,7 +32,9 @@ function showNextWord() {
     answer3Element.textContent = getRandomMeaning();
     answer4Element.textContent = getRandomMeaning();
 
-    var answerRadios = document.querySelectorAll("#answers input[type='radio']");
+    var answerRadios = document.querySelectorAll(
+      "#answers input[type='radio']"
+    );
     for (var i = 0; i < answerRadios.length; i++) {
       answerRadios[i].checked = false;
     }
@@ -40,8 +44,8 @@ function showNextWord() {
     meaningElement.textContent = "";
     nextBtn.disabled = true;
     listenBtn.disabled = true;
-  }resultElement.textContent = "";
-
+  }
+  resultElement.textContent = "";
 }
 
 function getRandomMeaning() {
@@ -79,15 +83,18 @@ listenBtn.addEventListener("click", function () {
 });
 
 function speakKana(kana) {
-  if ('speechSynthesis' in window) {
+  if ("speechSynthesis" in window) {
     var utterance = new SpeechSynthesisUtterance(kana);
     utterance.lang = "ja-JP";
     window.speechSynthesis.speak(utterance);
-  } else if ('webkitSpeechSynthesis' in window) {
+  } else if ("webkitSpeechSynthesis" in window) {
     var utterance = new SpeechSynthesisUtterance(kana);
     utterance.lang = "ja-JP";
     window.webkitSpeechSynthesis.speak(utterance);
-  } else if ('speechSynthesis' in window && 'SpeechSynthesisUtterance' in window) {
+  } else if (
+    "speechSynthesis" in window &&
+    "SpeechSynthesisUtterance" in window
+  ) {
     var utterance = new SpeechSynthesisUtterance(kana);
     utterance.lang = "ja-JP";
     var speech = new SpeechSynthesis();
@@ -111,7 +118,10 @@ function checkAnswer() {
   }
 
   resultElement.textContent =
-    "Kết quả: " + (selectedAnswer === currentWord["Ý nghĩa"] ? "Đúng" : "Sai");
+    "Đáp án: " +
+    (selectedAnswer === currentWord["Ý nghĩa"]
+      ? "Đúng tốt lắm"
+      : "Sai cần lưu ý");
 }
 
 checkBtn.addEventListener("click", checkAnswer);
