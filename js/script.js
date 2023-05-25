@@ -8,9 +8,11 @@ var answer1Element = document.getElementById("label1");
 var answer2Element = document.getElementById("label2");
 var answer3Element = document.getElementById("label3");
 var answer4Element = document.getElementById("label4");
+var resultElement = document.getElementById("result");
 
 var vocabulary = [];
 var currentWord;
+var selectedAnswer = false;
 
 function showNextWord() {
   if (vocabulary.length > 0) {
@@ -38,6 +40,11 @@ function showNextWord() {
     for (var i = 0; i < answerRadios.length; i++) {
       answerRadios[i].checked = false;
     }
+
+    selectedAnswer = false;
+    nextBtn.disabled = true;
+    resultElement.textContent = "";
+    hideErrorMessage();
   } else {
     wordElement.textContent = "Hết từ vựng";
     romajiElement.textContent = "";
@@ -45,7 +52,6 @@ function showNextWord() {
     nextBtn.disabled = true;
     listenBtn.disabled = true;
   }
-  resultElement.textContent = "";
 }
 
 function getRandomMeaning() {
@@ -69,7 +75,6 @@ function handleFileSelect(event) {
     showNextWord();
   };
   reader.readAsText(file);
-  resultElement.textContent = "";
 }
 
 document
@@ -106,6 +111,7 @@ function speakKana(kana) {
 
 var checkBtn = document.getElementById("checkBtn");
 var resultElement = document.getElementById("result");
+var errorMessageElement = document.getElementById("errorMessage");
 
 function checkAnswer() {
   var answerLabels = document.querySelectorAll("#answers label");
@@ -117,11 +123,29 @@ function checkAnswer() {
     }
   }
 
+  if (selectedAnswer === undefined) {
+    displayErrorMessage("Vui lòng chọn một đáp án trước khi kiểm tra.");
+    return;
+  }
+
   resultElement.textContent =
     "Đáp án: " +
     (selectedAnswer === currentWord["Ý nghĩa"]
       ? "Đúng tốt lắm"
       : "Sai cần lưu ý");
+
+  nextBtn.disabled = false;
+  hideErrorMessage();
 }
 
 checkBtn.addEventListener("click", checkAnswer);
+
+function displayErrorMessage(message) {
+  errorMessageElement.textContent = message;
+  errorMessageElement.style.display = "block";
+}
+
+function hideErrorMessage() {
+  errorMessageElement.textContent = "";
+  errorMessageElement.style.display = "none";
+}
