@@ -29,11 +29,25 @@
 そこ,そこ,soko,"Chỗ đó, đó"
 あそこ,あそこ,asoko,"Đằng kia, chỗ kia"
 どこ,どこ,doko,"Chỗ nào, ở đâu"
-こちら,こちら,kochira,"Phía này, đằng này, đây (cách nói lịch sự của ここ)"
+こちら,こちら,kochira,"Phía này, đằng này, đây 
+(cách nói lịch sự của ここ)"
 何階,なんがい,nangai,"Tầng mấy, tầng nào"
-どちら,どちら,dochira,"Phía nào, đằng nào, chỗ nào (cách nói lịch sự của どこ)"
-そちら,そちら,sochira,"Phía đó, đằng đó, chỗ đó (cách nói lịch sự của そこ)"
-あちら,あちら,achira,"Phía kia, đằng kia, chỗ kia ( cách nói lịch sự của あそこ)"
+どちら,どちら,dochira,"Phía nào, đằng nào, chỗ nào
+(cách nói lịch sự của どこ)"
+そちら,そちら,sochira,"Phía đó, đằng đó, chỗ đó 
+(cách nói lịch sự của そこ)"
+あちら,あちら,achira,"Phía kia, đằng kia, chỗ kia 
+(cách nói lịch sự của あそこ)"
 幾ら,いくら,ikura,Bao nhiêu tiền
 カフェ,カフェ,kafe,Quán cà phê
 アルコール,アルコール,arukooru,"Cồn, rượu"
+一階,いっかい,ikkai,Tầng 1
+二階,にかい,nikai,Tầng 2
+三階,さんがい,sangai,Tầng 3
+四階,よんかい,yonkai,Tầng 4
+五階,ごかい,gokai,Tầng 5
+六階,ろっかい,rokkai,Tầng 6
+七階,ななかい,nanakai,Tầng 7
+八階,はっかい,hakkai,Tầng 8
+九階,きゅうかい,kyuukai,Tầng 9
+十階,じゅっかい,jukkai,Tầng 10
