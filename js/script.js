@@ -149,3 +149,6 @@ function hideErrorMessage() {
   errorMessageElement.textContent = "";
   errorMessageElement.style.display = "none";
 }
+// Tạo link thư mục để người dùng down về
+var downloadLink = document.getElementById("downloadLink");
+downloadLink.href = "./data";
