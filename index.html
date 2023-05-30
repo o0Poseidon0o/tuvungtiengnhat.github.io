@@ -27,8 +27,12 @@
       </div>
       <button id="nextBtn">Tiếp theo</button>
       <button id="listenBtn">Nghe</button>
-      <div><input type="file" id="fileInput" accept=".csv" /></div>
 
+      <input type="file" id="fileInput" />
+      <button id="loadBtn" disabled>Load</button>
+      <select id="exerciseSelect">
+        <option value="">Chọn bài tập</option>
+      </select>
       <div id="answers">
         <input type="radio" name="answer" id="answer1" />
         <label for="answer1" id="label1"></label><br />

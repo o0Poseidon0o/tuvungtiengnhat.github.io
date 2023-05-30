@@ -61,8 +61,9 @@ function getRandomMeaning() {
 
 nextBtn.addEventListener("click", showNextWord);
 
-function parseJSON(jsonData) {
-  vocabulary = JSON.parse(jsonData);
+function handleJSONData(data) {
+  vocabulary = data;
+  showNextWord();
 }
 
 function handleFileSelect(event) {
@@ -161,9 +162,69 @@ function loadJSON(callback) {
   xhr.send(null);
 }
 
-function handleJSONData(data) {
-  vocabulary = data;
-  showNextWord();
+function handleFileSelect(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var jsonData = e.target.result;
+    vocabulary = JSON.parse(jsonData);
+    loadBtn.disabled = false;
+  };
+  reader.readAsText(file);
 }
 
-loadJSON(handleJSONData);
+document
+  .getElementById("fileInput")
+  .addEventListener("change", handleFileSelect);
+
+loadBtn.addEventListener("click", function () {
+  if (vocabulary.length === 0) {
+    displayErrorMessage(
+      "Không có dữ liệu từ vựng. Vui lòng chọn tệp tin JSON."
+    );
+    return;
+  }
+
+  showNextWord();
+});
+
+// Thay đổi danh sách bài tập
+var exerciseSelect = document.getElementById("exerciseSelect");
+exerciseSelect.addEventListener("change", function (event) {
+  var selectedOption = event.target.value;
+  if (selectedOption === "") {
+    vocabulary = [];
+    loadBtn.disabled = true;
+  } else {
+    var xhr = new XMLHttpRequest();
+    xhr.overrideMimeType("application/json");
+    xhr.open("GET", selectedOption, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        vocabulary = JSON.parse(xhr.responseText);
+        loadBtn.disabled = false;
+      }
+    };
+    xhr.send(null);
+  }
+});
+
+// Đọc nội dung của thư mục "data"
+fetch("./data/")
+  .then((response) => response.text())
+  .then((data) => {
+    var parser = new DOMParser();
+    var htmlDoc = parser.parseFromString(data, "text/html");
+
+    // Trích xuất danh sách các tệp tin JSON trong thư mục
+    var fileLinks = htmlDoc.querySelectorAll("a[href$='.json']");
+    fileLinks.forEach((fileLink) => {
+      var option = document.createElement("option");
+      option.value = fileLink.getAttribute("href");
+      option.text = fileLink.textContent;
+      exerciseSelect.appendChild(option);
+    });
+  })
+  .catch((error) => {
+    console.error("Lỗi khi đọc nội dung thư mục:", error);
+  });
