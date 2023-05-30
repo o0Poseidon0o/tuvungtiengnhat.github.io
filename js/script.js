@@ -61,17 +61,16 @@ function getRandomMeaning() {
 
 nextBtn.addEventListener("click", showNextWord);
 
-function parseCSV(csvData) {
-  var parsedData = Papa.parse(csvData, { header: true }).data;
-  vocabulary = parsedData;
+function parseJSON(jsonData) {
+  vocabulary = JSON.parse(jsonData);
 }
 
 function handleFileSelect(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   reader.onload = function (e) {
-    var csvData = e.target.result;
-    parseCSV(csvData);
+    var jsonData = e.target.result;
+    parseJSON(jsonData);
     showNextWord();
   };
   reader.readAsText(file);
@@ -149,6 +148,22 @@ function hideErrorMessage() {
   errorMessageElement.textContent = "";
   errorMessageElement.style.display = "none";
 }
-// Tạo link thư mục để người dùng down về
-var downloadLink = document.getElementById("downloadLink");
-downloadLink.href = "./data";
+
+function loadJSON(callback) {
+  var xhr = new XMLHttpRequest();
+  xhr.overrideMimeType("application/json");
+  xhr.open("GET", "./data/bai1.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      callback(JSON.parse(xhr.responseText));
+    }
+  };
+  xhr.send(null);
+}
+
+function handleJSONData(data) {
+  vocabulary = data;
+  showNextWord();
+}
+
+loadJSON(handleJSONData);

@@ -1,0 +1,224 @@
+[
+  {
+    "Kanji": "中国",
+    "Kana": "ちゅうごく",
+    "Romaji": "chuugoku",
+    "Ý nghĩa": "Trung Quốc"
+  },
+  {
+    "Kanji": "アメリカ",
+    "Kana": "アメリカ",
+    "Romaji": "amerika",
+    "Ý nghĩa": "Mỹ"
+  },
+  {
+    "Kanji": "イギリス",
+    "Kana": "イギリス",
+    "Romaji": "igirisu",
+    "Ý nghĩa": "Anh"
+  },
+  {
+    "Kanji": "韓国",
+    "Kana": "かんこく",
+    "Romaji": "kankoku",
+    "Ý nghĩa": "Hàn Quốc"
+  },
+  {
+    "Kanji": "タイ",
+    "Kana": "タイ",
+    "Romaji": "tai",
+    "Ý nghĩa": "Thái Lan"
+  },
+  {
+    "Kanji": "ドイツ",
+    "Kana": "ドイツ",
+    "Romaji": "doitsu",
+    "Ý nghĩa": "Đức"
+  },
+  {
+    "Kanji": "フランス",
+    "Kana": "フランス",
+    "Romaji": "furansu",
+    "Ý nghĩa": "Pháp"
+  },
+  {
+    "Kanji": "ベトナム",
+    "Kana": "ベトナム",
+    "Romaji": "betonamu",
+    "Ý nghĩa": "Việt Nam"
+  },
+  {
+    "Kanji": "日本",
+    "Kana": "にほん",
+    "Romaji": "nihon",
+    "Ý nghĩa": "Nhật Bản"
+  },
+  {
+    "Kanji": "カナダ",
+    "Kana": "カナダ",
+    "Romaji": "kanada",
+    "Ý nghĩa": "Canada"
+  },
+  {
+    "Kanji": "インド",
+    "Kana": "インド",
+    "Romaji": "indo",
+    "Ý nghĩa": "Ấn Độ"
+  },
+  {
+    "Kanji": "イタリア",
+    "Kana": "イタリア",
+    "Romaji": "itaria",
+    "Ý nghĩa": "Ý"
+  },
+  {
+    "Kanji": "インドネシア",
+    "Kana": "インドネシア",
+    "Romaji": "indoneshia",
+    "Ý nghĩa": "Indonesia"
+  },
+  {
+    "Kanji": "私",
+    "Kana": "わたし",
+    "Romaji": "watashi",
+    "Ý nghĩa": "Tôi, mình, tớ"
+  },
+  {
+    "Kanji": "私たち",
+    "Kana": "わたしたち",
+    "Romaji": "watashitachi",
+    "Ý nghĩa": "Chúng tôi, chúng ta"
+  },
+  {
+    "Kanji": "貴方",
+    "Kana": "あなた",
+    "Romaji": "anata",
+    "Ý nghĩa": "Bạn, anh, chị"
+  },
+  {
+    "Kanji": "学生",
+    "Kana": "がくせい",
+    "Romaji": "gakusei",
+    "Ý nghĩa": "Học sinh, sinh viên"
+  },
+  {
+    "Kanji": "エンジニア",
+    "Kana": "エンジニア",
+    "Romaji": "enjinia",
+    "Ý nghĩa": "Kỹ sư"
+  },
+  {
+    "Kanji": "銀行員",
+    "Kana": "ぎんこういん",
+    "Romaji": "ginkouin",
+    "Ý nghĩa": "Nhân viên ngân hàng"
+  },
+  {
+    "Kanji": "研究者",
+    "Kana": "けんきゅうしゃ",
+    "Romaji": "kenkyuusha",
+    "Ý nghĩa": "Nhà nghiên cứu"
+  },
+  {
+    "Kanji": "大学",
+    "Kana": "だいがく",
+    "Romaji": "daigaku",
+    "Ý nghĩa": "Trường đại học"
+  },
+  {
+    "Kanji": "先生",
+    "Kana": "せんせい",
+    "Romaji": "sensei",
+    "Ý nghĩa": "Thầy giáo, cô giáo"
+  },
+  {
+    "Kanji": "会社員",
+    "Kana": "かいしゃいん",
+    "Romaji": "kaishain",
+    "Ý nghĩa": "Nhân viên công ty"
+  },
+  {
+    "Kanji": "病院",
+    "Kana": "びょういん",
+    "Romaji": "byouin",
+    "Ý nghĩa": "Bệnh viện"
+  },
+  {
+    "Kanji": "医者",
+    "Kana": "いしゃ",
+    "Romaji": "isha",
+    "Ý nghĩa": "Bác sĩ"
+  },
+  {
+    "Kanji": "宜しく",
+    "Kana": "よろしく",
+    "Romaji": "yoroshiku",
+    "Ý nghĩa": "Xin hãy giúp đỡ"
+  },
+  {
+    "Kanji": "教師",
+    "Kana": "きょうし",
+    "Romaji": "kyoushi",
+    "Ý nghĩa": "Giáo viên"
+  },
+  {
+    "Kanji": "鍵",
+    "Kana": "かぎ",
+    "Romaji": "kagi",
+    "Ý nghĩa": "Chìa khóa"
+  },
+  {
+    "Kanji": "傘",
+    "Kana": "かさ",
+    "Romaji": "kasa",
+    "Ý nghĩa": "Cái ô"
+  },
+  {
+    "Kanji": "本",
+    "Kana": "ほん",
+    "Romaji": "hon",
+    "Ý nghĩa": "Sách"
+  },
+  {
+    "Kanji": "さん",
+    "Kana": "さん",
+    "Romaji": "san",
+    "Ý nghĩa": "Ông, bà, anh, chị \n(Dùng sau tên người để thể hiện lịch sự)"
+  },
+  {
+    "Kanji": "ちゃん",
+    "Kana": "ちゃん",
+    "Romaji": "chan",
+    "Ý nghĩa": "Bé...(Dùng sau tên bé gái)"
+  },
+  {
+    "Kanji": "君",
+    "Kana": "くん",
+    "Romaji": "kun",
+    "Ý nghĩa": "Dùng sau tên bé trai"
+  },
+  {
+    "Kanji": "歳",
+    "Kana": "さい",
+    "Romaji": "sai",
+    "Ý nghĩa": "Tuổi"
+  },
+  {
+    "Kanji": "人",
+    "Kana": "じん",
+    "Romaji": "jin",
+    "Ý nghĩa": "Người (nước ~)"
+  },
+  {
+    "Kanji": "会社",
+    "Kana": "かいしゃ",
+    "Romaji": "kaisha",
+    "Ý nghĩa": "Công ty"
+  },
+  {
+    "Kanji": "会話",
+    "Kana": "かいわ",
+    "Romaji": "kaiwa",
+    "Ý nghĩa": "Nói chuyện, hội thoại, \nđàm thoại"
+  }
+]
