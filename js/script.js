@@ -9,6 +9,7 @@ var answer2Element = document.getElementById("label2");
 var answer3Element = document.getElementById("label3");
 var answer4Element = document.getElementById("label4");
 var resultElement = document.getElementById("result");
+var errorMessageElement = document.getElementById("errorMessage");
 
 var vocabulary = [];
 var currentWord;
@@ -71,7 +72,7 @@ function handleFileSelect(event) {
   var reader = new FileReader();
   reader.onload = function (e) {
     var jsonData = e.target.result;
-    parseJSON(jsonData);
+    vocabulary = JSON.parse(jsonData);
     showNextWord();
   };
   reader.readAsText(file);
@@ -110,8 +111,6 @@ function speakKana(kana) {
 }
 
 var checkBtn = document.getElementById("checkBtn");
-var resultElement = document.getElementById("result");
-var errorMessageElement = document.getElementById("errorMessage");
 
 function checkAnswer() {
   var answerLabels = document.querySelectorAll("#answers label");
@@ -228,3 +227,32 @@ fetch("./data/")
   .catch((error) => {
     console.error("Lỗi khi đọc nội dung thư mục:", error);
   });
+function handleFileSelect(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    var jsonData = e.target.result;
+    vocabulary = JSON.parse(jsonData);
+    saveToLocalStorage(vocabulary);
+    showNextWord();
+  };
+  reader.readAsText(file);
+}
+
+function saveToLocalStorage(data) {
+  var jsonData = JSON.stringify(data);
+  localStorage.setItem("vocabularyData", jsonData);
+}
+
+// ...
+
+// Load dữ liệu từ local storage (nếu có)
+function loadFromLocalStorage() {
+  var jsonData = localStorage.getItem("vocabularyData");
+  if (jsonData) {
+    vocabulary = JSON.parse(jsonData);
+    showNextWord();
+  }
+}
+
+loadFromLocalStorage();
